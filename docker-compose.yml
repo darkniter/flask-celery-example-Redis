@@ -13,7 +13,7 @@ services:
 
   celery:
     build:
-      context: task/
+      context: .
     depends_on:
       - redis
 

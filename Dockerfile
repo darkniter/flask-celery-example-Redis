@@ -5,4 +5,5 @@ ENV FLASK_RUN_HOST 0.0.0.0
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY . .
+ENTRYPOINT celery -A proj worker --loglevel=info
 CMD ["flask", "run"]
