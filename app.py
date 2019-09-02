@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, session, flash, redirect, \
     url_for, jsonify
-from proj.tasks import long_task, send_async_email, app_celery
+from task.proj.tasks import long_task, send_async_email, app_celery
 
 app = Flask(__name__)
 

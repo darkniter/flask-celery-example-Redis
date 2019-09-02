@@ -13,8 +13,7 @@ services:
 
   celery:
     build:
-      context: proj/
-      dockerfile: Dockerfile
+      context: task/
     depends_on:
       - redis
 
