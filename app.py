@@ -4,7 +4,7 @@ import time
 from flask import Flask, request, render_template, session, flash, redirect, \
     url_for, jsonify
 from flask_mail import Mail, Message
-from celery import Celery
+from celery_init.proj.celery import app as celery
 
 
 app = Flask(__name__)
@@ -26,8 +26,7 @@ app.config['MAIL_DEFAULT_SENDER'] = 'flask@example.com'
 mail = Mail(app)
 
 # Initialize Celery
-celery = Celery(app.name,broker='redis://localhost:6380/13',
-             backend='redis://localhost:6380/13',)
+
 celery.conf.update(app.config)
 
 

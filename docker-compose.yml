@@ -13,12 +13,11 @@ services:
 
   celery:
     build:
-      context: .
+      context: ./celery_init
+      dockerfile: Dockerfile
     depends_on:
       - redis
 
   redis:
     image: redis
     restart: always
-    ports:
-      - "6380:6380"
