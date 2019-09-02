@@ -8,6 +8,9 @@ services:
       - celery
     ports:
       - "5002:5000"
+    volumes:
+      - .:/code
+      - ./celery_init/proj:/code/celery_init/proj
     environment:
       FLASK_ENV: development
 
@@ -15,6 +18,8 @@ services:
     build:
       context: ./celery_init
       dockerfile: Dockerfile
+    volumes:
+      - ./celery_init/proj:/proj
     depends_on:
       - redis
 
