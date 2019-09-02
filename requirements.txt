@@ -11,3 +11,4 @@ pytz==2019.1
 vine==1.3.0
 Werkzeug==0.15.4
 Flask-Mail==0.9.1
+celery
