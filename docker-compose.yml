@@ -21,3 +21,5 @@ services:
 
   redis:
     image: redis:5.0.5-alpine
+  expose:
+    - 6380
