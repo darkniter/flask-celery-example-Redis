@@ -8,16 +8,16 @@ services:
       - celery
     ports:
       - "5002:5000"
+    entrypoint: flask run
     environment:
       FLASK_ENV: development
 
   celery:
     build:
-      context: ./celery_init
-      dockerfile: Dockerfile
+      context: .
+    entrypoint: celery worker -A app.celery --loglevel=info
     depends_on:
-      - redis
+      - rabbitmq
 
   redis:
-    image: redis
-    restart: always
+    image: redis:5.0.5-alpine
